@@ -1,16 +1,22 @@
 describe('Bubble Sort', function() {
+  beforeEach(function() {
+    spyOn(window, 'swap').and.callThrough(); // replace existing `tootsiepop['lick']` method
+  });
+
+  it('how many times does swap run', function() {
+    debugger;
+    bubbleSort([2, 1]);
+    expect(window.swap.calls.count()).toEqual(1);
+  });
+
   it('handles an empty array', function() {
     expect(bubbleSort([])).toEqual([]);
   });
-});
 
-describe('Bubble Sort', function() {
   it('handles an array with a single item', function() {
     expect(bubbleSort([17])).toEqual([17]);
   });
-});
 
-describe('Bubble Sort', function() {
   it('handles an array with multiple items', function() {
     expect(bubbleSort([6, 9, 3, 5])).toEqual([3, 5, 6, 9]);
     expect(bubbleSort([1, 2, 3])).toEqual([1, 2, 3]);
